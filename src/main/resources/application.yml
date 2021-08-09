@@ -11,3 +11,13 @@ eureka:
 spring:
   application:
     name: order-service
+
+
+#设置feign调用超时时间
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        #超时时间
+        readTimeout: 2000
