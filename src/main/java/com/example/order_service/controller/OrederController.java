@@ -1,7 +1,7 @@
 package com.example.order_service.controller;
 
 
-import com.example.order_service.service.impl.OrderService;
+import com.example.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +27,10 @@ public class OrederController {
      */
     @RequestMapping("/save")
     public Object save(@RequestParam("user_id") int userId,@RequestParam("product_id") int productId){
-        return orderService.save(userId,productId);
+        //ribbon调用
+        //        return orderService.save(userId,productId);
+        //feign调用
+        return orderService.saveByFeign(userId,productId);
     }
 
 
